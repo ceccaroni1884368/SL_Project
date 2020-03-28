@@ -1,0 +1,10 @@
+local date,local time,location,lat,lon,aqi,co,h,no2,o3,p,pm10,pm25,so2,t,w,wg
+2020-03-26,23:00:00,"iperoil, Via Cipro, Balduina, Quartiere XIV Trionfale, Roma, Roma Capitale, Lazio, 00165, Italia",41.9071831,12.4466876,18,0.1,69.6,10.6,17.9,1005.3,3.0,9.0,0.1,15.9,9.0,18.1
+2020-03-26,23:00:00,"Farmacia, 5, Piazza Benedetto Cairoli, Rione VII Regola, Municipio Roma I, Roma, Roma Capitale, Lazio, 00186, Italia",41.8932669,12.4753855,14,,69.6,15.1,13.5,1005.3,6.0,9.0,,15.9,9.0,18.1
+2020-03-26,23:00:00,"Isidoro e Maria - Pizzeria Friggitoria, Viale Roma, La Pietrara, Le Muratelle, Guidonia Montecelio, Roma Capitale, Lazio, 00010, Italia",41.9939694,12.7245045,50,,51.4,10.1,11.4,1005.4,14.0,50.0,0.7,15.4,,
+2020-03-26,23:00:00,"Via Danimarca, Colle Laghetto, Guidonia Montecelio, Roma Capitale, Lazio, 00012, Italia",41.9644063,12.6684397,17,,55.2,12.4,11.4,1006.6,10.0,17.0,0.7,16.3,4.0,10.2
+2020-03-26,23:00:00,"Scuola di equitazione, Viale Alexander Dubcek, Quartiere II Parioli, Roma, Roma Capitale, Lazio, 00199, Italia",41.9328321,12.5012473,21,0.1,69.6,6.4,14.3,1005.3,5.0,21.0,0.1,15.9,9.0,18.1
+2020-03-26,23:00:00,"Libera Università Internazionale degli Studi Sociali (LUISS) Guido Carli, Via Panama, Municipio Roma II, Roma, Roma Capitale, Lazio, 00197, Italia",41.9248746,12.4934413,21,0.1,69.6,1.9,18.3,1005.3,7.0,21.0,0.1,15.9,9.0,18.1
+2020-03-26,23:00:00,"Via Latina, Colleferro Scalo, Colleferro, Roma Capitale, Lazio, 00034, Italia",41.7272528,13.0037837,42,0.1,88.3,5.1,26.0,1001.7,11.0,42.0,0.2,8.8,0.3,3.0
+2020-03-26,23:00:00,"Via Limosano, Zona VI Settecamini, Roma, Roma Capitale, Lazio, 00115, Italia",41.9363397,12.6544146,50,,51.4,12.4,11.4,1005.4,14.0,50.0,0.7,15.4,,
+2020-03-25,23:00:00,"Via Valentino Cigliutti, Municipio Roma XII, Roma, Roma Capitale, Lazio, Italia",41.883706,12.3337009,34,0.1,69.8,3.7,27.7,1005.3,10.0,34.0,0.1,15.7,9.0,18.2

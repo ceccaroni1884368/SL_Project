@@ -54,7 +54,7 @@ La crescita della disponibilità di dati e l'avanzamento delle tecnologie comput
 
 Main research aim \& framework
 ----------
-Lo scopo principale del progetto è trovare il modello migliore che riesca a predire la qualità dell'aria. I dati raccolti e l'analisi è relativa alla zona ____. 
+Lo scopo principale del progetto è trovare il modello migliore che riesca a predire la qualità dell'aria. I dati raccolti e l'analisi è relativa alla città di Roma. 
 
 L'interesse in questo argomento nasce dal fatto che pensiamo sia importante conoscere la situazione della qualità dell'aria e che grazie a delle previsioni sarebbe possibile controllare e forse "ridurre" l'inquinamento.
  
@@ -64,7 +64,7 @@ Un secondo obiettivo di questa ricerca, trovandoci in un periodo storico "partic
 
 Data source(s) 
 ----------
-I dati verranno presi giornalmente (4 misurazioni circa) dal sito [Air Quality Programmatic APIs](https://aqicn.org/api/) e collezionati in un dataframe tramite uno [script](https://github.com/ceccaroni1884368/SL_Project) python da noi sviluppato. Lo script si collega al sito tramite apposite API, fa richiesta della qualità dell'aria di ogni stazione _____ messa in lista ed inserisce le risposte in un dataframe che poi viene salvato in formato \textit{.csv}. I dataframe di ogni osservazione verranno in seguito uniti.
+I dati verranno presi giornalmente (4 misurazioni circa) dal sito [Air Quality Programmatic APIs](https://aqicn.org/api/) e collezionati in un dataframe tramite uno [script](https://github.com/ceccaroni1884368/SL_Project) python da noi sviluppato. Lo script si collega al sito tramite apposite API, fa richiesta della qualità dell'aria di ogni stazione della città di Roma messa in lista ed inserisce le risposte in un dataframe che poi viene salvato in formato \textit{.csv}. I dataframe di ogni osservazione verranno in seguito uniti.
 
 
 
