@@ -1,0 +1,142 @@
+title: "Statistical Learning Project"
+author: "1st Milestone"
+date: "G08"
+output: pdf_document
+bibliography: references.bib
+nocite: '@*'
+urlcolor: magenta
+linkcolor: cyan
+geometry: margin= 2 cm
+fontsize: 12pt
+header-includes:
+- \usepackage{bbold}
+- \usepackage{mdframed, xcolor}
+- \usepackage{graphicx}
+- \mdfsetup{frametitlealignment=\center}
+- \usepackage{multirow}
+- \usepackage{enumitem}
+- \definecolor{shadecolor}{rgb}{0.89,0.8,1}
+- \newcommand{\Prob}{\mathbb{P}}
+- \newcommand{\Exp}{\mathbb{E}}
+- \newcommand{\Var}{\mathbb{V}\mathrm{ar}}
+- \newcommand{\Cov}{\mathbb{C}\mathrm{ov}}
+- \newcommand{\blue}{\textcolor{blue}}
+- \newcommand{\darkgreen}{\textcolor[rgb]{0,.5,0}}
+- \newcommand{\gray}{\textcolor[rgb]{.3,.3,.3}}
+- \newcommand{\blueA}{\textcolor[rgb]{0,.1,.4}}
+- \newcommand{\blueB}{\textcolor[rgb]{0,.3,.6}}
+- \newcommand{\blueC}{\textcolor[rgb]{0,.5,.8}}
+- \newcommand{\evidenzia}{\textcolor[rgb]{0,0,0}}
+- \newcommand{\nero}{\textcolor[rgb]{0,0,0}}
+- \newcommand{\darkyel}{\textcolor[rgb]{.4,.4,0}}
+- \newcommand{\darkred}{\textcolor[rgb]{.6,0,0}}
+- \newcommand{\blueDek}{\textcolor[rgb]{0.6000000, 0.7490196, 0.9019608}}
+- \newcommand{\purpLarry}{\textcolor[rgb]{0.6901961, 0.2431373, 0.4784314}}
+- \newcommand{\lightgray}{\textcolor[rgb]{.8,.8,.8}}
+- \newcommand{\bfun}{\left\{\begin{array}{ll}}
+- \newcommand{\efun}{\end{array}\right.}
+---
+
+
+# Prediction and analysis of air quality
+Riccardo Ceccaroni, Giusy Beatrice Colarusso, Gabriele Giannotta, Francesco Lauro
+
+
+Abstract
+----------
+L'inquinamento atmosferico è uno dei grandi problemi che affligge le aree metropolitane di tutto il mondo. Il traffico e le industrie svolgono un ruolo significativo. Abbiamo bisogno di implementare modelli che registrino informazioni sulle concentrazioni di inquinanti atmosferici ($SO_2$, $NO_2$, ecc.) poichè la deposizione di questi gas nocivi nell'aria sta influenzando la qualità della vita delle persone. 
+
+La crescita della disponibilità di dati e l'avanzamento delle tecnologie computazionali stanno rendendo possibile la previsione e l'analisi della qualità dell'aria, fornendo informazioni estremamente utili per controllare l'inquinamento atmosferico.
+
+
+
+
+Main research aim \& framework
+----------
+Lo scopo principale del progetto è trovare il modello migliore che riesca a predire la qualità dell'aria. I dati raccolti e l'analisi è relativa alla città di Roma. 
+
+L'interesse in questo argomento nasce dal fatto che pensiamo sia importante conoscere la situazione della qualità dell'aria e che grazie a delle previsioni sarebbe possibile controllare e forse "ridurre" l'inquinamento.
+ 
+Un secondo obiettivo di questa ricerca, trovandoci in un periodo storico "particolare", ovvero la pandemia del Covid-19, è capire se quest'ultima oltre a cambiare le nostre abitudini abbia avuto o meno influenza sulla qualità dell'aria.
+
+
+
+Data source(s) 
+----------
+Data will be collected on a daily basis (about 4 records per day) from the Air Quality Programmatic APIs website. They will be collected into a dataframe through our own Python script. This script connects directly to the website using APIs, and requests the air quality data measured in any data-gathering entity in the city of Rome. Each record will be used to fill in a dataframe which will be saved into a .csv format file. Finally, all these dataframes will be merged together.
+
+
+
+
+Data collection
+----------
+From each data-gathering station we will collect the following data: date, time, location, $AQI$ index, carbon monoxide $CO$, nitrogen dioxide $NO_2$, ozone $O_3$, sulphur dioxide $SO_2$, particulate matter $PM_{10}$, particulate matter $PM_{2.5}$, humidity $h$, pressure $p$, temperature $t$, and wind speed $w$.
+
+The main concern in recording data is that data-gathering entities are uploaded at a different time during the day, and some of them are updated only once a day. 
+For this reason, we could be having some stations with more recordings than others.
+
+
+
+Model \& Methods
+----------
+The two models we want to test are the following:
+
+1. __Multiple Additive Regression Trees__: a machine learning technique for regression and classification problems, which produces a prediction model in the form of an ensemble of weak prediction models, typically decision trees [@wiki:Gradient_boosting], [@article7]. 
+
+
+2. __ARIMA Model__: a generalization of an autoregressive moving average (ARMA) model. Both of these models are fitted to time series data either to better understand the data or to predict future points in the series [@wiki:Autoregressive_integrated_moving_average], [@article4]. 
+
+
+
+Software/Hardware Toolkit
+----------
+Up to this point, the only programming language we have been using is \textit{Python}.
+
+It will be the main language we are going to use for the entire data analysis, together with \textit{R}.  Moreover, we will probably employ [gbm](https://cran.r-project.org/web/packages/gbm/gbm.pdf) and [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html).
+
+
+
+Project Timeline
+----------
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(plotly)
+df <- data.frame("Task" = c("Data Collect", "Models Development", 
+                            "Models test", "Presentation"),
+                 "Start" = c("3/30/2020", "4/20/2020", "5/10/2020", 
+                             "5/25/2020"), # MM/GG/AAAA
+                 "Duration" = c(60,30,20,10), # Days
+                 stringsAsFactors = F)
+df$Start  <- as.Date(df$Start, format = "%m/%d/%Y")
+client    <- "Sample Client"
+cols      <- RColorBrewer::brewer.pal(length(unique(df$Task)), name = "Set3")
+df$color  <- factor(df$Task, labels = cols)
+p <- plot_ly(type='scatter', mode='markers')
+for(i in 1:(nrow(df))){
+  p <- add_trace(p,
+                 x = c(df$Start[i], df$Start[i] + df$Duration[i]), 
+                 y = c(i, i), 
+                 mode = "lines",
+                 line = list(color = df$color[i], width = 20),
+                 showlegend = F,
+                 hoverinfo = "text",
+                 text = paste("Task: ", df$Task[i], "<br>",
+                              "Duration: ", df$Duration[i], "days<br>")
+  )
+}
+p <- p%>%
+  layout(
+    yaxis = list(
+      ticktext = as.list(df$Task), 
+      tickvals = as.list(1:length(df$Task)),
+      tickmode = "array"
+  ))
+orca(p, 'timeline.pdf')
+```
+\begin{center}
+\includegraphics[height=9cm]{timeline.pdf}
+\end{center}
+
+
+References
+----------
