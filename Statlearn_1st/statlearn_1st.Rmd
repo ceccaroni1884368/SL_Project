@@ -1,3 +1,4 @@
+---
 title: "Statistical Learning Project"
 author: "1st Milestone"
 date: "G08"
@@ -44,7 +45,7 @@ Riccardo Ceccaroni, Giusy Beatrice Colarusso, Gabriele Giannotta, Francesco Laur
 
 Abstract
 ----------
-Air pollution is one of the big issues that affect metropolitan areas all around the world. Traffic and factories play a significant role. We need to implement models that keep track of data about the concentration of air pollutants (SO2, NO2, etc.). Indeed, the diffusion of these toxic gases in the air affects people’s quality of life. The increase in data availability and new discoveries in terms of computational technologies are making it possible to predict and analyse the air quality, providing extremely useful information to control air pollution.
+Air pollution is one of the big issues that affect metropolitan areas all around the world. Traffic and factories play a significant role. We need to implement models that keep track of data about the concentration of air pollutants ($SO_2$, $NO_2$, etc.). Indeed, the diffusion of these toxic gases in the air affects people’s quality of life. The increase in data availability and new discoveries in terms of computational technologies are making it possible to predict and analyse the air quality, providing extremely useful information to control air pollution.
 
 
 
@@ -91,21 +92,25 @@ It will be the main language we are going to use for the entire data analysis, t
 
 
 
+
 Project Timeline
 ----------
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(plotly)
+
 df <- data.frame("Task" = c("Data Collect", "Models Development", 
                             "Models test", "Presentation"),
                  "Start" = c("3/30/2020", "4/20/2020", "5/10/2020", 
                              "5/25/2020"), # MM/GG/AAAA
                  "Duration" = c(60,30,20,10), # Days
                  stringsAsFactors = F)
+
 df$Start  <- as.Date(df$Start, format = "%m/%d/%Y")
 client    <- "Sample Client"
 cols      <- RColorBrewer::brewer.pal(length(unique(df$Task)), name = "Set3")
 df$color  <- factor(df$Task, labels = cols)
+
 p <- plot_ly(type='scatter', mode='markers')
 for(i in 1:(nrow(df))){
   p <- add_trace(p,
@@ -119,6 +124,7 @@ for(i in 1:(nrow(df))){
                               "Duration: ", df$Duration[i], "days<br>")
   )
 }
+
 p <- p%>%
   layout(
     yaxis = list(
@@ -127,11 +133,13 @@ p <- p%>%
       tickmode = "array"
   ))
 orca(p, 'timeline.pdf')
+
 ```
 \begin{center}
-\includegraphics[height=9cm]{timeline.pdf}
+\includegraphics[height=12cm]{timeline.pdf}
 \end{center}
 
 
 References
 ----------
+
