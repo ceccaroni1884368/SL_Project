@@ -59,7 +59,7 @@ The main goal of the project is to find a model that manages to predict air qual
 
 Data source(s) 
 ----------
-Data will be collected on a daily basis (about 4 records per day) from the Air Quality Programmatic APIs website. They will be collected into a dataframe through our own Python [script](https://github.com/ceccaroni1884368/SL_Project). This script connects directly to the website using APIs, and requests the air quality data measured in any data-gathering entity in the city of Rome. Each record will be used to fill in a dataframe which will be saved into a .csv format file. Finally, all these dataframes will be merged together.
+Data will be collected on a daily basis (about 1 record per day) from the Air Quality Programmatic APIs website. They will be collected into a dataframe through our own Python [script](https://github.com/ceccaroni1884368/SL_Project). This script connects directly to the website using APIs, and requests the air quality data measured in any data-gathering entity in the city of Rome. Each record will be used to fill in a dataframe which will be saved into a .csv format file. Finally, all these dataframes will be merged together.
 
 
 
