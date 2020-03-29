@@ -53,7 +53,7 @@ Air pollution is one of the big issues that affect metropolitan areas all around
 
 Main research aim \& framework
 ----------
-The main goal of the project is to find a model that manages to predict air quality. Our interest in this topic stems from the fact that we think it's important to know more about air quality situation. Indeed, we strongly believe that predictions could help reducing pollution. Living in a "unique" historical period, namely the Covid-19 pandemic, a secondary goal of our research is understanding if this virus, besides changing our habits, has had an effect on air quality.
+The main goal of the project is to find a model that manages to predict air quality. Our interest in this topic stems from the fact that we think it's important to know more about air quality situation. Indeed, we strongly believe that predictions could help reducing pollution. Living in a "unique" historical period, namely the Covid-19 pandemic, a secondary goal of our research is understanding if this virus, besides changing our habits, has had an effect on air quality [@Airpollu36:online].
 
 
 
