@@ -1,0 +1,10 @@
+local date,local time,location,lat,lon,aqi,co,h,no2,o3,p,pm10,pm25,so2,t,w,wg
+2020-04-02,23:00:00,"iperoil, Via Cipro, Balduina, Quartiere XIV Trionfale, Roma, Roma Capitale, 00165, Italia",41.9071831,12.4466876,50,0.1,43.6,9.6,26.9,1008.4,15.0,50.0,0.2,16.1,1.3,4.3
+2020-04-02,23:00:00,"Farmacia, 5, Piazza Benedetto Cairoli, Rione VII Regola, Municipio Roma I, Roma, Roma Capitale, 00186, Italia",41.8932669,12.4753855,42,,43.6,11.0,24.4,1008.4,16.0,42.0,,16.1,1.3,4.3
+2020-04-02,23:00:00,"Isidoro e Maria - Pizzeria Friggitoria, Viale Roma, La Pietrara, Le Muratelle, Guidonia Montecelio, Roma Capitale, 00010, Italia",41.9939694,12.7245045,59,,50.0,4.6,30.9,1009.2,19.0,59.0,0.5,13.3,,
+2020-04-02,23:00:00,"Via Danimarca, Colle Laghetto, Guidonia Montecelio, Roma Capitale, 00012, Italia",41.9644063,12.6684397,46,,48.5,10.6,26.4,1008.8,19.0,46.0,0.5,14.1,,
+2020-04-02,23:00:00,"Scuola di equitazione, Viale Alexander Dubcek, Quartiere II Parioli, Roma, Roma Capitale, 00199, Italia",41.9328321,12.5012473,46,0.1,49.0,10.1,17.5,1008.8,14.0,46.0,0.2,14.4,2.5,8.0
+2020-04-02,23:00:00,"Libera Università Internazionale degli Studi Sociali (LUISS) Guido Carli, Via Panama, Municipio Roma II, Roma, Roma Capitale, 00197, Italia",41.9248746,12.4934413,50,0.1,43.6,2.8,27.3,1008.4,16.0,50.0,0.2,16.1,1.3,4.3
+2020-04-02,23:00:00,"Via Latina, Colleferro Scalo, Colleferro, Roma Capitale, 00034, Italia",41.7272528,13.0037837,61,0.1,59.0,4.6,26.0,1000.6,21.0,61.0,0.2,10.2,2.0,8.0
+2020-04-02,23:00:00,"Via Limosano, Municipio Roma IV, Zona VI Settecamini, Roma Capitale, 00115, Italia",41.9363397,12.6544146,59,,48.5,8.3,26.4,1008.8,19.0,59.0,0.5,14.1,,
+2020-04-02,23:00:00,"Via Valentino Cigliutti, Municipio Roma XII, Roma, Roma Capitale, Italia",41.883706,12.3337009,95,0.1,43.6,6.4,29.3,1008.4,35.0,95.0,0.4,16.1,1.3,4.3
