@@ -1,0 +1,154 @@
+---
+title: "Statistical Learning Project"
+author: "2st Milestone"
+date: "G08"
+output: pdf_document
+bibliography: references.bib
+nocite: '@*'
+urlcolor: magenta
+linkcolor: cyan
+geometry: margin= 2 cm
+fontsize: 12pt
+header-includes:
+- \usepackage{bbold}
+- \usepackage{mdframed, xcolor}
+- \usepackage{graphicx}
+- \mdfsetup{frametitlealignment=\center}
+- \usepackage{multirow}
+- \usepackage{enumitem}
+- \definecolor{shadecolor}{rgb}{0.89,0.8,1}
+- \newcommand{\Prob}{\mathbb{P}}
+- \newcommand{\Exp}{\mathbb{E}}
+- \newcommand{\Var}{\mathbb{V}\mathrm{ar}}
+- \newcommand{\Cov}{\mathbb{C}\mathrm{ov}}
+- \newcommand{\blue}{\textcolor{blue}}
+- \newcommand{\darkgreen}{\textcolor[rgb]{0,.5,0}}
+- \newcommand{\gray}{\textcolor[rgb]{.3,.3,.3}}
+- \newcommand{\blueA}{\textcolor[rgb]{0,.1,.4}}
+- \newcommand{\blueB}{\textcolor[rgb]{0,.3,.6}}
+- \newcommand{\blueC}{\textcolor[rgb]{0,.5,.8}}
+- \newcommand{\evidenzia}{\textcolor[rgb]{0,0,0}}
+- \newcommand{\nero}{\textcolor[rgb]{0,0,0}}
+- \newcommand{\darkyel}{\textcolor[rgb]{.4,.4,0}}
+- \newcommand{\darkred}{\textcolor[rgb]{.6,0,0}}
+- \newcommand{\blueDek}{\textcolor[rgb]{0.6000000, 0.7490196, 0.9019608}}
+- \newcommand{\purpLarry}{\textcolor[rgb]{0.6901961, 0.2431373, 0.4784314}}
+- \newcommand{\lightgray}{\textcolor[rgb]{.8,.8,.8}}
+- \newcommand{\bfun}{\left\{\begin{array}{ll}}
+- \newcommand{\efun}{\end{array}\right.}
+---
+
+
+# Prediction and analysis of air quality
+Riccardo Ceccaroni, Giusy Beatrice Colarusso, Gabriele Giannotta, Francesco Lauro
+
+
+Abstract
+----------
+Air pollution is one of the big issues that affect metropolitan areas all around the world. Traffic and factories play a significant role. We need to implement models that keep track of data about the concentration of air pollutants ($SO_2$, $NO_2$, etc.). Indeed, the diffusion of these toxic gases in the air affects people’s quality of life. The increase in data availability and new discoveries in terms of computational technologies are making it possible to predict and analyse the air quality, providing extremely useful information to control air pollution.
+
+
+
+
+
+Main research aim \& framework
+----------
+The main goal of the project is to find a model that manages to predict air quality. Our interest in this topic stems from the fact that we think it's important to know more about air quality situation. Indeed, we strongly believe that predictions could help reducing pollution. Living in a "unique" historical period, namely the Covid-19 pandemic, a secondary goal of our research is understanding if this virus, besides changing our habits, has had an effect on air quality [@Airpollu36:online].
+
+
+
+Data collection \& source(s) 
+----------
+Data will be collected on a daily basis (about 1 record per hour) from the Air Quality Programmatic APIs [website](https://aqicn.org/map/italy/). They will be collected into a dataframe through our own Python [script](https://github.com/ceccaroni1884368/SL_Project). This script connects directly to the website using APIs, and requests the air quality data measured in the following data-gathering entity in the city of Rome: Fiumicino Guglielmi, via Francia, Cinecitta, Villa Ada, Cipro, via Arenula. 
+ Each record will be used to fill in a dataframe which will be saved into a .csv format file. Finally, all these dataframes will be merged together.
+
+
+From each data-gathering station we will collect the following data: date, time, location, carbon monoxide $CO$, nitrogen dioxide $NO_2$, ozone $O_3$, sulphur dioxide $SO_2$, particulate matter $PM_{10}$, particulate matter $PM_{2.5}$, humidity $h$, pressure $p$, temperature $t$, and wind speed $w$.
+
+The main concern in recording data is that data-gathering entities are uploaded at a different time during the day, and some of them are updated only once a day. 
+For this reason, we could be having some stations with more recordings than others.
+
+```{r echo=FALSE}
+library(knitr)
+airdata <- readRDS("./test_airdata.rds")
+kable(airdata[1:5,c(18,1:8)])
+```
+```{r echo=FALSE}
+library(knitr)
+kable(airdata[1:5,c(18,9:17)])
+```
+
+
+Model \& Methods \underline{update}
+----------
+We are going to divide the data we gathered in two phases. The first one contains observations starting from March the 24th to May the 4th, while the second one starts from May the 5th until the day we stop collecting data.
+We will leave out a few days of the first phase and use the remaining ones to approximate the posterior distribution through the __INLA__ technique [@book1]. Then we will check the quality of the prediction using the days we didn't include in the previous fitting process.
+Afterward, will make predictions on the second phase's days. Finally, we are going to compare these projections with the actual data we have for the second phase.
+
+
+
+
+Software/Hardware Toolkit \underline{update}
+----------
+Up to this point, the only programming language we have been using is \textit{Python}. Our Python script is automatically runned online through [pythonanywhere](https://www.pythonanywhere.com) website.
+
+It will be the main language we are going to use for the entire data analysis, together with \textit{R}.  Moreover, we will employ the [INLA](http://www.r-inla.org/) library.
+
+
+Problems so far...
+----------
+Up to now, there have been essentially two problems: 
+missing or incomplete data for the variables considered, even though this is not a big issue since the INLA technique can deal with missing data; 
+doubts regarding how to handle the INLA technique.
+
+Project Timeline \underline{update}
+----------
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(plotly)
+
+df <- data.frame("Task" = c("Data Collect", "Models Development", 
+                            "Models test", "Presentation"),
+                 "Start" = c("3/30/2020", "5/16/2020", "5/20/2020", 
+                             "5/25/2020"), # MM/GG/AAAA
+                 "Duration" = c(60,20,15,10), # Days
+                 stringsAsFactors = F)
+
+df$Start  <- as.Date(df$Start, format = "%m/%d/%Y")
+client    <- "Sample Client"
+cols      <- RColorBrewer::brewer.pal(length(unique(df$Task)), name = "Set3")
+df$color  <- factor(df$Task, labels = cols)
+
+p <- plot_ly(type='scatter', mode='markers')
+for(i in 1:(nrow(df))){
+  p <- add_trace(p,
+                 x = c(df$Start[i], df$Start[i] + df$Duration[i]), 
+                 y = c(i, i), 
+                 mode = "lines",
+                 line = list(color = df$color[i], width = 20),
+                 showlegend = F,
+                 hoverinfo = "text",
+                 text = paste("Task: ", df$Task[i], "<br>",
+                              "Duration: ", df$Duration[i], "days<br>")
+  )
+}
+
+p <- p%>%
+  layout(
+    yaxis = list(
+      ticktext = as.list(df$Task), 
+      tickvals = as.list(1:length(df$Task)),
+      tickmode = "array"
+  ))
+orca(p, 'timeline.pdf')
+
+```
+\begin{center}
+\includegraphics[height=12cm]{timeline.pdf}
+\end{center}
+
+\newpage
+
+References \underline{update}
+----------
+
